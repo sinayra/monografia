@@ -1,0 +1,113 @@
+A aprendizagem de lógicas e métodos de programação é fundamental para cursos relacionados a computação. Desta forma, um aluno só conseguirá avançar nos estudos desta área se tiver bem consolidado os conceitos de programação, tornando importante o seu desempenho nas matérias iniciais dos cursos de Engenharia, Ciência da Computação e Licenciatura em Computação. Apesar disso, a aprendizagem destes conceitos não é trivial.
+
+Por exemplo, o índice de reprovação em \acrfull{APC}, oferecido pelo Departamento  de  Ciência  da  Computação  da  \acrfull{UnB},  tem
+crescido    a    cada   semestre   ~\cite{mineracao}. Apesar das  tentativas de criar mais horários
+de plantão de dúvidas e maior disponibilidade dos monitores para a
+disciplina,  a taxa de reprovação continua crescente. A
+Figura ~\ref{fig:rel} descreve o índice de aprovação e reprovação/trancamento.  Para os alunos aprovados, foram considerados a
+soma da  quantidade de alunos  que obtiveram menção  CC, MM, MS  e SS; para os alunos reprovados ou que realizaram trancamento, as menções MI, II, SR, TR e TJ.
+
+\figura[H]{../img/mencaocb2-100}{Relação de  aprovação e reprovação/trancamento dos alunos  de \acrshort{APC} da turma A (Ciência da Computação)}{fig:rel}{width=0.8\textwidth}%
+
+
+%Várias  medidas  vêm sendo  tomadas  pelo  Departamento objetivando  a
+%modernização  curricular \cite{pppbach} orientada  pelas recomendações
+%da Sociedade  Brasileira de Computação  (SBC)~\cite{recsbc, mec}.  Uma
+%das   consequências   esperadas   dessa  reformulação   curricular   é
+%redespertar o interesse dos  alunos pela profissão fazendo-os entender
+%a  importância da  boa  formação  em todas  as  disciplinas do  curso.
+
+O  uso de  modelagem  gráfica como  elemento catalizador para  despertar ou aumentar  o interesse em  programação é proposto em diversos estudos apresentados em fóruns de educação, como o SBIE~\cite{sbie2010a}. Outras universidades que oferecem o curso de computação também recorreram a elementos gráficos para auxiliar o aprendizado de programação, como ilustra a Tabela \ref{tab:grafica}.
+
+Visando dar  suporte às políticas  pedagógicas e aumentar  o interesse dos alunos pela disciplina inicial de programação do Bacharelado, foi desenvolvida uma biblioteca gráfica  2D  denominada  \playAPC. Se a sequência de aulas for corretamente planejada com o  uso da \playAPC, ao final do semestre  letivo, os alunos deverão ser  capazes de programar animações e jogos simples.  
+
+Este documento está organizado em seis capítulos. O Capítulo 2 apresenta a fundamentação teórica, tanto para o desenvolvimento da biblioteca quanto para sua aplicação, e apresenta uma comparação entre a proposta e outros projetos similares. O Capítulo 3 explica com maiores detalhes a proposta, exibindo seus requisitos, sua arquitetura e apresenta um tutorial explicando passo a passo sobre como utilizar as funções mais básicas da biblioteca. O Capítulo 4 apresenta sugestões de práticas de laboratório para serem aplicadas ao longo de um semestre, separadas por tópicos, e expõe comentários sobre o uso da biblioteca por parte dos professores e alunos. O Capítulo 5 destaca os principais problemas enfrentados e sugere trabalhos futuros utilizando como base este projeto.
+%Visando dar  suporte as políticas  pedagógicas e aumentar  o interesse
+%dos alunos pela disciplina inicial de programação do Bacharelado, está
+%sendo  desenvolvida  uma  API   gráfica  2D  denominada  \playCB.   Se
+%corretamente planejada a  sequência de aulas com o  uso da \playCB, ao
+%final do semestre  letivo, os alunos deverão ser  capazes de programar
+%jogos  simplificados 2D.  O  uso de  modelagem  gráfica como  elemento
+%catalizador para  despertar ou aumentar  o interesse em  programação é
+%proposta em diversos estudos apresentados em fóruns de educação como o
+%SBIE~\cite{sbie2010a}.
+
+% A OpenGL é uma  \acrfull{API} que fornece ao usuário uma biblioteca que dá acesso ao usuário dos recursos de sua própria placa de vídeo. Entre esses recursos, a manipulação de figuras geométricas, imagens e operações computacionais tanto em duas quanto em três dimensões. Esta biblioteca, no entanto, exige do usuário um conhecimento em matemática e em computação avançado, impossibilitando o uso desta incrível ferramenta já nos primeiros anos de estudo de programação.
+
+% Visando dar suporte as políticas pedagógicas e não limitando os primeiros anos de estudo em programação somente a linhas de comando, foram propostas duas bibliotecas que visam a simplificação do uso da OpenGL: \playCB{} e \acrshort{SUGOI}. Ambas simplificam no sentido de diminuir o número de chamadas e esconder do usuário detalhes como mudança de estados, preparação de contexto, renderização e entre outros aspectos fundamentais, porém não triviais ao programador inexperiente. A \playCB{} é dedicada para o uso didático, em um plano 2D, e a \acrshort{SUGOI} é dedicada para a manipulação de alguns recursos da OpenGL em um plano 2D e 3D, não sendo focada necessariamente para o uso didático.
+
+% \section{\playCB}
+% \subsection{Caracterização}
+
+% A \playCB{} é  uma API gráfica 2D projetada  para permitir a modelagem
+% de entidades  geométricas 2D.   A princípio, as  entidades geométricas
+% podem ser classificadas como:
+% \begin{itemize}
+% \item simples. Exemplo: um ponto $P$ no espaço $R \times R$.
+% \item compostas.  Exemplo: uma casa representada por  um retângulo com
+%   um triângulo em cima.
+% \item estáticas. Exemplo: um floco de neve.
+% \item animadas. Exemplo: demonstração da resolução da torre de hanói.
+% \end{itemize}
+% \noindent Para  todos os exemplos  citados, a \playCB{} assume  que os
+% alunos tenham apreendido conhecimentos  básicos de Matemática e Física
+% do Ensino Médio.
+
+% Em sua versão corrente, versão 1.4.1, a \playCB{} oferece funções para construção de
+% entidades  geométricas   2D  tais  como   \emph{ponto},  segmentos  de
+% \emph{reta}, \emph{triângulos}, \emph{quadriláteros}, \emph{polígonos}
+% de $n$ lados,  \emph{elipses}, \emph{círculos} e \emph{circunferências}. Oferece ainda
+% métodos que replicam:
+
+% \begin{itemize}
+% \item  mudança de base, ou seja, \emph{translação},
+% \item rotação e,
+% \item redimensionamento, ou seja, \emph{escala}
+% \end{itemize}
+
+% \noindent  Esses métodos  podem  ser aplicados  a  todas as  entidades
+% geométricas construídas ou a específicos \emph{grupos} de entidades.
+
+% Além disso, a \playCB{} possui suporte a input de teclado e disponibiliza ferramentas para a utilização de texturas em suas aplicações.
+
+% \subsection{Abordagem Dual}
+
+% Enquanto ferramenta de apoio didático, a \playCB{} pode ser trabalhada
+% de modo dual, ou seja, (i) pelos alunos e (ii) pelos professores.
+
+% Do ponto de vista discente, a \playCB{} pode ser usada para consolidar
+% os  conceitos aprendidos no primeiro semestre, como  em \acrfull{APC} na \acrshort{UnB} usando modelagem
+% gráfica.   Dessa   forma,  os   alunos  podem  interagir   com  outras
+% disciplinas  do Bacharelado  de  modo lúdico.   Um exemplo  disso---um
+% moinho com as pás  em movimento---é mostrado na Listagem~\ref{moinho},
+% página~\pageref{moinho}. O exemplo em  questão foi criado por um aluno
+% de \acrshort{CB}, turma B, em outubro de 2014 durante uma aula prática no LINF; o
+% resultado visual da modelagem é apresentada na captura de tela gráfica
+% exibida na Fig.~\ref{holanda}.
+
+% Para  o docente,  a \playCB{}  permite ilustrar  de forma  dinâmica os
+% conteúdos    do   curso,    tais   como    recursão,    ilustrado   na
+% Listagem~\ref{neve}, ou  ainda, composição de  movimentos ilustrado na
+% Listagem~\ref{solar}.
+
+% \section{SUGOI 2}
+% \subsection{Caracterização}
+% Observando todas as limitações impostas pela \playCB{}, por se tratar de uma biblioteca necessariamente 2D, a \acrfull{SUGOI}, tal qual a \playCB{}, é uma biblioteca gráfica que permite a modelagens de figuras geométricas de um modo simplificado, porém utilizando o plano 2D e 3D.
+
+% Com a utilização da terceira dimensão, aspectos como luz e profundidade estão presentes na \acrshort{SUGOI}. Apesar do usuário não manipulá-las diretamente, a existência desses dois aspectos se tornam um diferencial na comparação das duas bibliotecas. 
+
+% Similar a \playCB{}, as entidades podem ser classificadas como:
+% \begin{itemize}
+% \item simples. Exemplo: um ponto $P$ no espaço $R \times R \times R$.
+% \item compostas.  Exemplo: Uma casa representada por dois paralelepípedos e uma piramide.
+% \item estáticas. Exemplo: pirâmide de Sierpinski.
+% \item animadas. Exemplo: sistema solar.
+% \end{itemize}
+% Para todos os exemplos citados, a \acrshort{SUGOI} assume que o aluno tenha conhecimentos básicos de Matemática e Física, tal qual a \playCB{} assume.
+
+% Em sua versão corrente, versão 0.1, a \acrshort{SUGOI} oferece funções para a construção de entidades geométricas tais como \emph{esfera}, \emph{polígono}, \emph{paralelepípedo} e \emph{pirâmide}. Também oferece os mesmos métodos de transformações que a \playCB, com pequenas diferenças de implementação.
+
+% \subsection{Abordagem única}
+
+% Diferente da \playCB, a \acrshort{SUGOI} não visa a consolidação de conceitos adquiridos ao longo do semestre, tendo um propósito mais amplo que somente o didático. Apesar de ambas as bibliotecas possuírem arquiteturas similares, a \acrshort{SUGOI} é dedicada aos programadores inexperientes que possuem interesse em Computação Gráfica, mas que teve pouco ou nenhum contato com esta área. Ou seja, a \acrshort{SUGOI} pressupõe que seu usuário tenha conhecimento básico de programação na linguagem C.
+

@@ -1,0 +1,241 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Classe do documento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Opções:
+%  - Graduação: bacharelado/engenharia/licenciatura
+%  - Pós-graduação: mestrado/doutorado, ppca/ppginf
+
+\documentclass[bacharelado]{UnB-CIC}%
+%\documentclass[qualificacao,mestrado,ppca]{UnB-CIC}%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pacotes para playAPC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{float}
+\usepackage{subcaption}
+ %Por que indentar o 1º parágrafo? Isso é coisa da ABNT
+%\usepackage{indentfirst}
+\usepackage{hyperref}
+\usepackage{xcolor,graphicx,url, tikz}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{rotating}
+\usepackage{footnote}
+\usepackage{textpos}
+
+\newcounter{equationset}
+\newcommand{\equationset}[1]{% \equationset{<caption>}
+  \refstepcounter{equationset}% Step counter
+  \noindent\makebox[\textwidth]{Equação~\theequationset: #1}}% Print caption
+
+  \makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
+
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Listagem}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{dred}{rgb}{0.545,0,0}
+\definecolor{dblue}{rgb}{0,0,0.545}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+
+\lstdefinestyle{tuto}{
+        inputencoding=utf8, 
+        basicstyle=\small\ttfamily,
+        literate={é}{{\'{e}}}1
+                 {ç}{{\c{c}}}1
+                 {ã}{{\~{a}}}1
+                 {á}{{\'{a}}}1
+                 {à}{{\`{a}}}1
+                 {õ}{{\~{o}}}1
+                 {ó}{{\'{o}}}1
+                 {Ó}{{\'{O}}}1
+                 {ú}{{\'{u}}}1
+                 {í}{{\'{\i}}}1,
+        rulecolor=\color{black},
+        language=C++, % frame=single,
+        identifierstyle=\color{black},
+        stepnumber=1,
+        commentstyle=\color{dkgreen},
+        stringstyle=\color{blue},  
+        showstringspaces=false,
+        breaklines=true,
+        emph={
+            AbreJanela,
+            PintarFundo,
+            Pintar,
+            Grafite,
+            Move,
+            Desenha,
+            Desenha1Frame,
+            MostraPlanoCartesiano,
+            MudaLimitesJanela,
+            CriaGrafico,
+            CriaReta,
+            CriaCircunferencia,
+            CriaCirculo,
+            CriaGrupo,
+            CriaQuadrado,
+            CriaTriangulo,
+            CriaRetangulo,
+            CriaElipse,
+            CriaPonto,
+            CriaPoligono,
+            ApertouTecla,
+            LimpaDesenho
+        },
+        emphstyle={\color{red!40!black}\bfseries}  
+  }
+
+\lstdefinestyle{code}{
+        inputencoding=utf8, 
+        literate={é}{{\'{e}}}1
+                 {ç}{{\c{c}}}1
+                 {ã}{{\~{a}}}1
+                 {á}{{\'{a}}}1
+                 {à}{{\`{a}}}1
+                 {õ}{{\~{o}}}1
+                 {ó}{{\'{o}}}1
+                 {Ó}{{\'{O}}}1
+                 {ú}{{\'{u}}}1
+                 {í}{{\'{\i}}}1,
+        rulecolor=\color{black},
+        language=C++, % frame=single,
+        basicstyle=\scriptsize\ttfamily,
+        identifierstyle=\color{black},
+        numbers=left,
+        stepnumber=1,
+        numbersep=5pt,
+        numberstyle=\color{gray}\tiny,
+        commentstyle=\color{dkgreen},
+        stringstyle=\color{blue},  
+        showstringspaces=false,
+        breaklines=true,
+        emph={
+            AbreJanela,
+            PintarFundo,
+            Pintar,
+            Grafite,
+            Move,
+            Desenha,
+            Desenha1Frame,
+            MostraPlanoCartesiano,
+            MudaLimitesJanela,
+            CriaGrafico,
+            CriaReta,
+            CriaCircunferencia,
+            CriaCirculo,
+            CriaGrupo,
+            CriaQuadrado,
+            CriaTriangulo,
+            CriaRetangulo,
+            CriaElipse,
+            CriaPonto,
+            CriaPoligono,
+            ApertouTecla,
+            LimpaDesenho
+        },
+        emphstyle={\color{red!40!black}\bfseries}  
+  }
+
+\usepackage{algpseudocode,algorithm}
+
+
+%A famila de fontes TIMES é bem diversificada/completa. Tem por
+%exemplo o typewriter em negrito e itálico sse por alguma razão
+%precisarmos disso. Eu imagino isso no pacote listings
+%acima (vide basicstyle=\ttfamily) mas ainda não trabalhei esses detalhes.
+\usepackage{times}
+
+\def\playAPC{\textsf{\textsc{playAPC}}}
+\def\red#1{\textcolor{red!50!black}{#1}}
+\def\blue#1{\textcolor{blue!50!black}{#1}}
+\def\green#1{\textcolor{green!50!black}{#1}}
+\def\oo{\textordmasculine{}}
+\def\oa{\textordfeminine{}}
+
+\setcounter{tocdepth}{5}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cores dos links
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Veja o arquivos cores.tex se quiser ver que outras cores estão
+% pré-definidas.  Utilizando o comando \hypersetup abaixo nós
+% evitamos aquelas caixas vermelhas feias em volta dos links.
+
+\input{cores}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=DarkScarletRed,
+  citecolor=DarkScarletRed,
+  filecolor=DarkScarletRed,
+  urlcolor= DarkScarletRed
+}
+
+
+
+\newtheorem{myDef}{Definição}
+
+\setcounter{secnumdepth}{5}
+\usepackage{enumitem}
+
+\newlist{renumerate}{enumerate}{1}
+\setlist[renumerate]{label=Exercício \arabic{subsection}.\arabic*, leftmargin=0pt, labelsep=0pt,itemindent=*}
+
+%\renewcommand{\theenumi}{\thesubsection.\arabic{enumi}}
+%\renewcommand{\labelenumi}{\thesubsection.\arabic{enumi}}
+\usepackage{pdfpages}% incluir PDFs, usado no apêndice
+\usepackage{dirtytalk}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Informações do Trabalho
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\orientador{\prof \dr Alexandre Zaghetto}{CIC/UnB}%
+\coorientador{\prof \dr José Carlos Loureiro Ralha}{CIC/UnB}
+\coordenador{\prof \dr Rodrigo Bonifácio de Almeida}{CIC/UnB}%
+\diamesano{18}{novembro}{2016}%
+
+\membrobanca{\prof \dr Carla Maria Chagas e Cavalcante Koike}{CIC/UnB}%
+\membrobanca{\prof \dr Marcus Vinícius Chaffim Costa}{FGA/UnB}%
+
+\autor{Sinayra Pascoal Cotts}{Moreira}%
+
+\titulo{playAPC: Projeto e Desenvolvimento de uma Biblioteca Gráfica como Ferramenta Didática para Algoritmos e Programação de Computadores}%
+
+\palavraschave{OpenGL, Computação Gráfica, Biblioteca, Didático, Lúdico, Visual}%
+\keywords{OpenGL, Computer Graphics, Library, Didactic, Playful, Visual}%
+%Eu gosto de um espaço maior entre parágrafos
+\parskip 8ptplus3ptminus2pt
+
+
+\newcommand{\unbcic}{\texttt{UnB-CIC}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Texto
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    %\capitulo{1_Introducao}{Introdução}%
+    %\capitulo{2_UnB-CIC}{A Classe \unbcic}%
+    %\capitulo{3_TCC}{Trabalho de Conclusão de Curso}%
+    %\capitulo{4_Apresentacao}{Apresentações}%
+    \capitulo{capitulo1}{Introdução}
+    \capitulo{capitulo2}{Fundamentação Teórica e Trabalhos Correlatos}
+    \capitulo{capitulo3}{Solução Proposta}
+    \capitulo{capitulo4}{Resultados Experimentais}
+    %\capitulo{capitulo5}{Avaliação}
+    \capitulo{capitulo6}{Conclusão}
+
+    \apendice{Apendice1}{Apostila de exercícios da \playAPC}%
+    \apendice{Apendice2}{Guia de referência da \playAPC}%
+    \apendice{Apendice3}{Questionário qualitativo sobre o uso da \playAPC{}}%
+    \apendice{Apendice4}{Logo da \playAPC{}}%
+    \apendice{Apendice5}{Códigos fontes dos práticas sugeridas}%
+    \anexo{Anexo2}{Material sobre recursão usando \playAPC{} criado pelo professor Ralha}%
+    \anexo{Anexo3}{Enunciado do Certificado de Bravura}%
+    \anexo{Anexo1}{Ementas dos cursos iniciais de computação}%
+
+\end{document}%
