@@ -1,0 +1,22 @@
+Pontos fortes:
+- Tema extremamente relevante
+- Contexto, referencias, e metodologia de desenvolvimento bem executados.
+- Permite aos alunos de APC criar programas gráficos desde o básico até os mais avançados
+- Na formação da aluna, o tema perrmite o ponto de vista desenvolvimento de produto e acadêmico.
+
+Pontos Fracos:
+- Objetivo não está claro: produto ou seu uso em APC?
+
+referencia, metodologia e avaliação dependem do objetivo e devem estar coerentes com ele.
+o trabalho mostra histórico de Comp. Grafica, referencias em Eng. Software mas avalia o aspecto educacional da biblioteca.
+
+- Ponto de vista desenvolvedor:
+ custo (horas de programação)
+impacto na complexidade dos programas que utilizam a biblioteca
+expectativa de custo de manutenção
+resultados dos testes da bilbioteca
+
+- ponto de vista acadêmico/educacional
+metodologia educacional de aplicação (com comitê de ética)
+avaliação por turma, por desempenho final do aluno, por características de personalidade?
+Desperta vocações para área gráfica, mas motiva os alunos que não se interessam pelo assunto?

@@ -1,0 +1,8 @@
+1) se você usou o comando \pretextual dentro de seus arquivos, pode removê-lo. Esse comando já é habilitado por default e tem 
+    como efeito colateral contar em dobro o número de páginas
+
+2) você usou o pacote babel?  A separação silábica está errada. A sequência das línguas é importante. Use da seguinte forma
+  
+ \usepackage[american,brazil]{babel}
+
+A língua default é a última da lista; dessa forma a separação silábica adotada será a da língua brasileira (sim, brasileira já que o português é um tanto diferente)
